@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Buy a pixel on a shared digital wall. Share a five-second video or a destination link.">
+<title>Pixel Wall — Buy a Pixel. Leave Your Mark.</title>
+<style>
+:root{--ink:#20213f;--muted:#666981;--paper:#faf8ff;--pink:#ff4f9a;--orange:#ff9956;--purple:#7658f5;--teal:#45cdb0;--line:#e6e2f1}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif}a{color:inherit;text-decoration:none}button,input,select{font:inherit}.wrap{width:min(1080px,calc(100% - 32px));margin:auto}
+header{display:flex;justify-content:space-between;align-items:center;padding:22px 0;gap:15px}.logo{font-weight:1000;font-size:21px;letter-spacing:-.06em}.logo span{color:var(--purple)}nav{display:flex;gap:18px;color:var(--muted);font-size:13px;font-weight:750}.btn{display:inline-flex;justify-content:center;align-items:center;border:0;border-radius:99px;padding:13px 18px;background:var(--ink);color:white;font-size:13px;font-weight:850;cursor:pointer}.bright{background:linear-gradient(100deg,var(--pink),var(--orange));box-shadow:0 8px 22px #ff4f9a30}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center;padding:45px 0 65px}.eyebrow{text-transform:uppercase;letter-spacing:.15em;font-size:11px;font-weight:900;color:var(--purple)}h1{font-size:clamp(45px,7vw,78px);line-height:.9;letter-spacing:-.08em;margin:18px 0}.gradient{background:linear-gradient(100deg,var(--pink),var(--orange),var(--purple));color:transparent;background-clip:text;-webkit-background-clip:text}.hero p,.intro{color:var(--muted);line-height:1.8;font-size:14px}.price{display:inline-block;background:white;border:1px solid var(--line);padding:10px 15px;border-radius:99px;margin:8px 0 20px;font-weight:850}.price strong{font-size:20px;color:var(--pink)}.art{height:340px;border-radius:28px;position:relative;overflow:hidden;background:linear-gradient(135deg,#ffe0ed,#e9e1ff 52%,#d9faef);box-shadow:0 22px 60px #51418b18}.tile{position:absolute;width:29%;height:34%;border:5px solid white;border-radius:13px;box-shadow:0 16px 30px #39265b28;display:grid;place-items:center;color:white;font-size:30px;font-weight:1000;transform:rotate(var(--r));background:linear-gradient(135deg,var(--a),var(--b))}.tile:nth-child(1){left:9%;top:13%;--r:-8deg;--a:#ff4f9a;--b:#9d64ed}.tile:nth-child(2){right:9%;top:8%;--r:7deg;--a:#ffd45b;--b:#ff8954}.tile:nth-child(3){left:34%;top:34%;width:34%;height:42%;--r:3deg;--a:#48bde9;--b:#7658f5}.tile:nth-child(4){right:5%;bottom:5%;--r:-7deg;--a:#45cdb0;--b:#159baa}.tile:nth-child(5){left:7%;bottom:5%;--r:5deg;--a:#ff9956;--b:#ff4f9a}.artnote{position:absolute;z-index:2;font:italic 14px Georgia,serif;color:#5d4a83}.n1{top:5%;left:7%}.n2{bottom:5%;right:6%}
+section.content{padding:55px 0}.wallsection{background:linear-gradient(135deg,#fff0f7,#f0edff 52%,#e8fbf4);border-block:1px solid var(--line)}.head{display:flex;justify-content:space-between;align-items:end;gap:22px;margin-bottom:22px}.head h2{font-size:clamp(32px,5vw,50px);letter-spacing:-.07em;line-height:.95;margin:10px 0}.head p{max-width:520px;color:var(--muted);font-size:13px;line-height:1.7;margin:0}.wall{padding:20px;background:#ffffffdb;border:1px solid #e6e0f3;border-radius:22px;box-shadow:0 18px 55px #4d317812}.walltop{display:flex;justify-content:space-between;gap:12px;align-items:center}.walltop h3{font-size:15px;margin:0 0 5px}.walltop p,.counter small{font-size:12px;color:var(--muted);margin:0}.counter{text-align:right}.counter strong{display:block;color:var(--pink);font-size:22px}.progress{height:7px;background:#e8e3f3;border-radius:99px;overflow:hidden;margin:17px 0}.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pink),var(--orange),var(--purple))}.controls{display:flex;gap:10px;margin-bottom:12px}.controls input,.controls select,.field input,.field select{padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:white;min-width:0}.controls input{flex:1}.legend{font-size:11px;color:var(--muted);margin:0 0 10px}.swatch{display:inline-block;width:10px;height:10px;border-radius:3px;margin:0 5px 0 12px}.viewport{background:#242858;border-radius:13px;padding:7px;max-height:510px;overflow:auto}.grid{display:grid;grid-template-columns:repeat(40,minmax(0,1fr));gap:3px;min-width:540px}.pixel{aspect-ratio:1;min-width:0;padding:0;border:1px solid #ffffff70;border-radius:3px;cursor:pointer;background:linear-gradient(135deg,#ff4f9a,#ff9956)}.pixel:nth-child(7n+2){background:linear-gradient(135deg,#ffd45b,#ff8954)}.pixel:nth-child(7n+3){background:linear-gradient(135deg,#a58aff,#6d50d8)}.pixel:nth-child(7n+4){background:linear-gradient(135deg,#70dbef,#3789d8)}.pixel:nth-child(7n+5){background:linear-gradient(135deg,#76e5c3,#159caa)}.pixel:nth-child(7n+6){background:linear-gradient(135deg,#ffbc67,#f05e58)}.pixel:hover{transform:scale(1.3);outline:2px solid white;z-index:2}.pixel.occupied{background:linear-gradient(135deg,#596078,#252943)}.bottom{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:15px;color:var(--muted);font-size:12px}.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.rule{padding:20px;background:white;border:1px solid var(--line);border-radius:16px}.rule b{display:block;margin-bottom:8px}.rule p{font-size:12px;line-height:1.7;color:var(--muted);margin:0}.warning{padding:22px;background:#fff0f5;border:1px solid #ffd4e5;border-radius:17px;font-size:13px;line-height:1.75;color:#59435a}.footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:22px 0;color:var(--muted);font-size:11px}
+.modal{display:none;position:fixed;inset:0;z-index:5;background:#211b3999;backdrop-filter:blur(7px);align-items:center;justify-content:center;padding:18px}.modal.open{display:flex}.card{width:min(480px,100%);max-height:92vh;overflow:auto;background:white;border-radius:22px;padding:25px;position:relative}.close{position:absolute;right:12px;top:12px;border:0;border-radius:50%;width:34px;height:34px;background:#eeeafa;font-size:20px;cursor:pointer}.card h3{font-size:27px;margin:10px 0}.card p{font-size:13px;line-height:1.65;color:var(--muted)}.fee{font-size:28px;font-weight:950;color:var(--pink)}.field{margin:13px 0}.field label{display:block;font-size:12px;font-weight:850;margin-bottom:6px}.field input,.field select{width:100%}.agree{display:flex;align-items:flex-start;gap:8px;font-size:12px;line-height:1.5;color:var(--muted)}.fine{font-size:10px!important}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}.light{background:#efecf8;color:var(--ink)}[hidden]{display:none!important}
+@media(max-width:760px){nav{display:none}.hero{grid-template-columns:1fr;padding:28px 0 45px}.art{height:300px}.head{display:block}.head p{margin-top:12px}.rules{grid-template-columns:1fr}.grid{grid-template-columns:repeat(25,minmax(0,1fr));min-width:0;gap:2px}.viewport{padding:5px}}@media(max-width:480px){.wall{padding:12px}.controls{flex-direction:column}.section.content{padding:42px 0}.walltop{align-items:start}.counter strong{font-size:17px}}
+
+:root {
+  --ink: #153B3B;
+  --muted: #5C7472;
+  --paper: #F8F7F0;
+  --soft: #E7F0E9;
+  --pink: #FF7867;
+  --orange: #F5A65B;
+  --purple: #2C7773;
+  --blue: #A8D5BA;
+  --line: #D7E4DB;
+  --white: #FFFFFF;
+}
+body { background: var(--paper) !important; color: var(--ink) !important; }
+header, .hero, .hero-section { background: var(--paper) !important; }
+h1, h2, h3, .headline, .hero h1 { color: var(--ink) !important; }
+.gradient-text, .hero h1 span, h1 span {
+  background: linear-gradient(100deg, #FF7867 0%, #F5A65B 48%, #2C7773 100%) !important;
+  -webkit-background-clip: text !important; background-clip: text !important;
+  color: transparent !important;
+}
+button, .btn, .primary-btn, .cta {
+  background: linear-gradient(110deg, #FF7867, #F5A65B) !important;
+  color: #fff !important; border-color: transparent !important;
+}
+.pixel-wall, .wall, .grid-wrap, .wall-container {
+  background: linear-gradient(135deg, #FCE8DE, #E7F0E9 60%, #DDEBE8) !important;
+}
+.pixel, .pixel-cell, .grid-cell {
+  border-color: #D7E4DB !important;
+}
+.modal, .dialog, .popup {
+  background: #FFFFFF !important; color: var(--ink) !important;
+}
+.price-pill {
+  color: var(--ink) !important; background: #FFFFFF !important;
+  border: 1px solid #D7E4DB !important;
+}
+
+
+:root {
+  --ink: #191943;
+  --muted: #62658B;
+  --paper: #FCFAFF;
+  --soft: #F1E8FF;
+  --pink: #FF3F8E;
+  --orange: #FF8A3D;
+  --purple: #7655FF;
+  --blue: #32B8FF;
+  --line: #E3DDF8;
+  --white: #FFFFFF;
+}
+html, body { background: #FCFAFF !important; color: #191943 !important; }
+header, nav, .hero, .hero-section { background: #FCFAFF !important; }
+h1, h2, h3, .headline, .hero h1 { color: #191943 !important; }
+.gradient-text, .hero h1 span, h1 span {
+  background: linear-gradient(100deg, #FF3F8E 0%, #FF8A3D 35%, #7655FF 72%, #32B8FF 100%) !important;
+  -webkit-background-clip: text !important; background-clip: text !important;
+  color: transparent !important;
+}
+button, .btn, .primary-btn, .cta, a.button {
+  background: linear-gradient(110deg, #FF3F8E 0%, #FF8A3D 100%) !important;
+  color: #FFFFFF !important; border-color: transparent !important;
+}
+.pixel-wall, .wall, .grid-wrap, .wall-container, .wall-visual {
+  background: linear-gradient(135deg, #FFE0F0 0%, #E7DEFF 42%, #D6F7FF 72%, #D9FFF0 100%) !important;
+}
+.pixel, .pixel-cell, .grid-cell {
+  border-color: #E3DDF8 !important;
+}
+.modal, .dialog, .popup {
+  background: #FFFFFF !important; color: #191943 !important;
+}
+.price-pill { display: none !important; }
+
+
+:root {
+  --ink: #17133B;
+  --muted: #66638A;
+  --paper: #FBFAFF;
+  --soft: #F1E9FF;
+  --pink: #FF3568;
+  --orange: #FF6B4A;
+  --purple: #7B2CFF;
+  --blue: #287BFF;
+  --line: #E4DDF7;
+  --white: #FFFFFF;
+}
+html, body { background: #FBFAFF !important; color: #17133B !important; }
+header, nav, .hero, .hero-section { background: #FBFAFF !important; }
+h1, h2, h3, .headline, .hero h1 { color: #17133B !important; }
+.gradient-text, .hero h1 span, h1 span {
+  background: linear-gradient(100deg, #FF3568 0%, #FF6B4A 25%, #9B35FF 60%, #287BFF 100%) !important;
+  -webkit-background-clip: text !important; background-clip: text !important;
+  color: transparent !important;
+}
+button, .btn, .primary-btn, .cta, a.button {
+  background: linear-gradient(110deg, #FF3568 0%, #7B2CFF 52%, #287BFF 100%) !important;
+  color: #FFFFFF !important; border-color: transparent !important;
+}
+.pixel-wall, .wall, .grid-wrap, .wall-container, .wall-visual, .wall-section {
+  background: linear-gradient(135deg, #FFE0EA 0%, #E8D9FF 38%, #D7E5FF 70%, #D8F7FF 100%) !important;
+}
+.pixel, .pixel-cell, .grid-cell, .pixel-tile, button.pixel {
+  border-color: #FFFFFF !important;
+  background-image: linear-gradient(135deg, rgba(255,255,255,.20), rgba(255,255,255,0)) !important;
+}
+.modal, .dialog, .popup {
+  background: #FFFFFF !important; color: #17133B !important;
+}
+.price-pill { display: none !important; }
+
+</style></head><body>
+<header class="wrap"><a class="logo" href="#top">PIXEL<span>WALL</span></a><nav><a href="#wall">Explore pixels</a><a href="#how">How it works</a><a href="#rules">Content rules</a></nav><a class="btn bright" href="#wall">Buy a pixel ↗</a></header>
+<main id="top">
+<section class="wrap hero"><div><div class="eyebrow">One wall. A world of moments.</div><h1>BUY A PIXEL.<br><span class="gradient">LEAVE YOUR</span><br>MARK.</h1><p>Choose a pixel on this shared digital wall. Add a five-second video or a link that takes visitors directly to your chosen destination page.</p><div class="price">One pixel <strong>₹199</strong> · one-time fee</div><br><a class="btn bright" href="#wall">Explore the wall ↓</a></div><div class="art"><span class="artnote n1">your space on the wall</span><span class="artnote n2">click a pixel to begin</span><div class="tile">✦</div><div class="tile">HELLO</div><div class="tile">↗</div><div class="tile">♥</div><div class="tile">✳</div></div></section>
+<section class="content wallsection" id="wall"><div class="wrap"><div class="head"><div><div class="eyebrow">Find your pixel</div><h2>THE PIXEL WALL.</h2></div><p>There are 1,000 pixels in the main wall. Select any available pixel to see the price and submission options. An additional 1,000-pixel section can be opened when needed.</p></div><div class="wall"><div class="walltop"><div><h3>THE SHARED DIGITAL WALL</h3><p>Pick an available pixel to get started.</p></div><div class="counter"><strong id="count">1,000</strong><small id="countLabel">pixels displayed</small></div></div><div class="progress"><span id="progress"></span></div><div class="controls"><input id="search" type="search" placeholder="Find pixel number…" aria-label="Search pixel number"><select id="filter" aria-label="Filter pixels"><option value="all">All pixels</option><option value="available">Available</option><option value="occupied">Occupied</option></select></div><div class="legend"><i class="swatch" style="background:#ff4f9a"></i>Available <i class="swatch" style="background:#596078"></i>Occupied in this browser preview</div><div class="viewport"><div id="grid" class="grid" aria-label="Pixel wall"></div></div><div class="bottom"><span id="status">Click an available pixel to view its details.</span><button class="btn" id="expand" type="button">Open extra 1,000 pixels +</button></div></div></div></section>
+<section class="content" id="how"><div class="wrap"><div class="head"><div><div class="eyebrow">Simple steps</div><h2>HOW IT WORKS.</h2></div></div><div class="rules"><article class="rule"><b>1. Choose a pixel</b></article><article class="rule"><b>2. Share a video or link</b><p>Upload a video up to five seconds long, or provide a destination URL that visitors can open.</p></article><article class="rule"><b>3. Pay and submit</b><p>Complete payment and submit your content for review. A pixel is not reserved until payment and submission are confirmed.</p></article></div></div></section>
+<section class="content" id="rules"><div class="wrap"><div class="head"><div><div class="eyebrow">Keep the wall safe</div><h2>CONTENT RULES.</h2></div><p>All submissions are subject to review. Help keep the wall appropriate and safe for visitors around the world.</p></div><div class="warning"><b>Not allowed:</b> Do not submit or link to vulgar, sexually explicit, hateful, harassing, violent, illegal, deceptive, or otherwise harmful content. We may reject, remove, or disable content that violates these rules or applicable law. <b>Payments are non-refundable:</b> once payment has been made, the amount will not be returned, including if submitted content is rejected or later taken down for violating the rules. Please review your video or destination link carefully before submitting.</div><p class="fine">Before launch, publish complete Terms, Privacy and Content Moderation policies and confirm they comply with the laws that apply to your business and customers.</p></div></section>
+</main><footer class="wrap footer"><span>Pixel Wall · A shared digital wall for the world.</span></footer>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="card"><button class="close" id="close" aria-label="Close">×</button><div class="eyebrow">Your place on the wall</div><h3 id="modalTitle">Pixel #1</h3><div class="fee">₹199<span style="font-size:12px;color:#666981">one-time</span></div><p>Choose one option for the content you want visitors to see.</p><form id="form"><div class="field"><label for="type">What would you like to add?</label><select id="type" required><option value="link">A destination link</option><option value="video">A video (up to 5 seconds)</option></select></div><div class="field" id="linkRow"><label for="destination">Destination URL</label><input id="destination" type="url" placeholder="https://example.com"></div><div class="field" id="videoRow" hidden><label for="video">Upload a video (max 5 seconds)</label><input id="video" type="file" accept="video/*"><p class="fine">Secure file upload and duration validation need a connected backend.</p></div><div class="field"><label for="email">Email address</label><input id="email" type="email" placeholder="you@example.com" required></div><label class="agree"><input id="agree" type="checkbox" required><span>I confirm my content and destination comply with the content rules. I understand payment is non-refundable, including if content is rejected or taken down for violating the rules.</span></label><div class="actions"><button class="btn bright" type="submit">Continue to payment ↗</button><button class="btn light" type="button" id="cancel">Cancel</button></div><p class="fine">International checkout, video storage, email notifications, shared pixel reservations and moderation tools must be connected to a payment provider and backend. This demo does not take payment or store submissions.</p></form></div></div>
+<script>
+(()=>{const grid=document.querySelector('#grid'),search=document.querySelector('#search'),filter=document.querySelector('#filter'),modal=document.querySelector('#modal'),form=document.querySelector('#form'),type=document.querySelector('#type');let total=1000,selected=null;
+function occupied(){try{return new Set(JSON.parse(localStorage.getItem('pixelwall_preview_occupied')||'[]').map(Number))}catch(e){return new Set()}}
+function render(){const taken=occupied(),q=search.value.trim();grid.innerHTML='';let shown=0,free=0;for(let n=1;n<=total;n++){let isTaken=taken.has(n);if(!isTaken)free++;if(filter.value==='available'&&isTaken||filter.value==='occupied'&&!isTaken||q&&!String(n).includes(q))continue;const b=document.createElement('button');b.type='button';b.className='pixel'+(isTaken?' occupied':'');b.title='Pixel #'+n+' · '+(isTaken?'occupied':'available');b.setAttribute('aria-label',b.title);b.onclick=()=>{if(isTaken){alert('This pixel is marked occupied in this browser preview. Shared availability requires a connected backend.');return}selected=n;document.querySelector('#modalTitle').textContent='Pixel #'+n;modal.classList.add('open')};grid.appendChild(b);shown++}document.querySelector('#count').textContent=shown.toLocaleString();document.querySelector('#countLabel').textContent='pixels shown · '+free.toLocaleString()+' available';document.querySelector('#progress').style.width=((total-free)/total*100)+'%';document.querySelector('#status').textContent=shown.toLocaleString()+' pixels shown. Select an available pixel to continue.'}
+function toggle(){let v=type.value==='video';document.querySelector('#videoRow').hidden=!v;document.querySelector('#linkRow').hidden=v;document.querySelector('#destination').required=!v;document.querySelector('#video').required=v}
+function close(){modal.classList.remove('open');form.reset();toggle()}
+search.oninput=render;filter.onchange=render;type.onchange=toggle;document.querySelector('#expand').onclick=()=>{total=total===1000?2000:1000;document.querySelector('#expand').textContent=total===1000?'Open extra 1,000 pixels +':'Return to first 1,000 pixels';render()};document.querySelector('#close').onclick=close;document.querySelector('#cancel').onclick=close;modal.onclick=e=>{if(e.target===modal)close()};document.onkeydown=e=>{if(e.key==='Escape')close()};
+form.onsubmit=e=>{e.preventDefault();if(!selected)return;alert('Payment and submission are not connected yet. Before accepting customers, connect international checkout and a secure backend for video uploads, moderation, and shared pixel reservations. No payment has been taken.')};toggle();render()})();
+</script></body></html>
